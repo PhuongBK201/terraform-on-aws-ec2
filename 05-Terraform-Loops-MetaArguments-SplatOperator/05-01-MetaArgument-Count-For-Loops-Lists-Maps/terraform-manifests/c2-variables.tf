@@ -3,12 +3,12 @@
 variable "aws_region" {
   description = "Region in which AWS Resources to be created"
   type = string
-  default = "us-east-1"
+  default = "us-west-2"
 }
 
 # AWS EC2 Instance Type
 variable "instance_type" {
-  description = "EC2 Instnace Type"
+  description = "EC2 Instance Type"
   type = string
   default = "t3.micro"
 }
@@ -17,14 +17,14 @@ variable "instance_type" {
 variable "instance_keypair" {
   description = "AWS EC2 Key Pair that need to be associated with EC2 Instance"
   type = string
-  default = "terraform-key"
+  default = "chester-ecv-oregon"
 }
 
 # AWS EC2 Instance Type - List
 variable "instance_type_list" {
   description = "EC2 Instance Type"
   type = list(string)
-  default = ["t3.micro", "t3.small", "t3.large"]  
+  default = ["t3.micro", "t3.small", "t3.medium"]  
 }
 
 # AWS EC2 Instance Type - Map
@@ -34,6 +34,6 @@ variable "instance_type_map" {
   default = {
     "dev" = "t3.micro"
     "qa" = "t3.small"
-    "prod" = "t3.large"
+    "prod" = "t3.medium"
   }
 }
