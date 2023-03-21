@@ -13,7 +13,7 @@ module "alb" {
   security_groups = [module.loadbalancer_sg.this_security_group_id]
   # Listeners
   # HTTP Listener - HTTP to HTTPS Redirect
-    http_tcp_listeners = [
+  http_tcp_listeners = [
     {
       port               = 80
       protocol           = "HTTP"
