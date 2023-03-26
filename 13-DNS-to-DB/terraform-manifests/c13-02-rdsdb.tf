@@ -21,7 +21,7 @@ module "rdsdb" {
   engine_version       = "8.0.20"
   family               = "mysql8.0" # DB parameter group
   major_engine_version = "8.0"      # DB option group
-  instance_class       = "db.t3.large"
+  instance_class       = "db.t3.medium"
 
   allocated_storage     = 20
   max_allocated_storage = 100
