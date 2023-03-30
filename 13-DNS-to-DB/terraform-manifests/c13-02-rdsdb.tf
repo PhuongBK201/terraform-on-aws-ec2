@@ -18,7 +18,7 @@ module "rdsdb" {
 
   # All available versions: http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt
   engine               = "mysql"
-  engine_version       = "8.0.20"
+  engine_version       = "8.0.23"
   family               = "mysql8.0" # DB parameter group
   major_engine_version = "8.0"      # DB option group
   instance_class       = "db.t3.medium"
