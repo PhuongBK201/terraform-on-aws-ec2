@@ -1,7 +1,7 @@
 # DNS Registration 
 resource "aws_route53_record" "apps_dns" {
   zone_id = data.aws_route53_zone.mydomain.zone_id 
-  name    = "nlb.devopsincloud.com"
+  name    = "nlb.chester-ecv.click"
   type    = "A"
   alias {
     name                   = module.nlb.lb_dns_name
