@@ -2,9 +2,9 @@
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
-    bucket = "terraform-on-aws-for-ec2"
+    bucket = "terraform-on-aws-chester"
     key    = "dev/project1-vpc/terraform.tfstate"
-    region = "us-east-1"
+    region = "us-west-2"
   }
 }
 

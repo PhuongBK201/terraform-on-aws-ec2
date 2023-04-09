@@ -51,13 +51,17 @@ resource "aws_iam_role" "cw_canary_iam_role" {
 # Create S3 Bucket
 resource "aws_s3_bucket" "cw_canary_bucket" {
   bucket = "cw-canary-bucket-${random_pet.this.id}"
-  acl    = "private"
   force_destroy = true
 
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
   }
+}
+
+resource "aws_s3_bucket_acl" "cw_canary_bucket" {
+  bucket = aws_s3_bucket.cw_canary_bucket.id
+  acl    = "private"
 }
 
 # AWS CloudWatch Canary
@@ -67,7 +71,7 @@ resource "aws_synthetics_canary" "sswebsite2" {
   execution_role_arn   = aws_iam_role.cw_canary_iam_role.arn 
   handler              = "sswebsite2.handler"
   zip_file             = "sswebsite2/sswebsite2v1.zip"
-  runtime_version      = "syn-nodejs-puppeteer-3.1"
+  runtime_version      = "syn-nodejs-puppeteer-3.5"
   start_canary = true
 
   run_config {
